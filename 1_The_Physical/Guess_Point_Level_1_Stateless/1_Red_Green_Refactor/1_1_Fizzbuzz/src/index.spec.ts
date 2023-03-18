@@ -13,5 +13,15 @@ describe("fizzbuzz", () => {
 
                 expect(replacedNumber).toEqual(replacedNumbers);
             })
+        
+    describe("otherwise", () => {
+        describe("if the given array contain numbers greater then 100 and smaller then 1", () => {
+            it('should throw an error', () => {
+                const numbersToBeReplaced = [1, 110, 100];
+                
+                expect(() => fizzbuzzReplacement(numbersToBeReplaced)).toThrow(ArrayHasInvalidNumbersException)
+            })
+        })
+    })
     })
 });
