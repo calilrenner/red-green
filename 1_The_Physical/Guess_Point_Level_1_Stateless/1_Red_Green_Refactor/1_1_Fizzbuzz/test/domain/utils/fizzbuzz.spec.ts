@@ -1,5 +1,5 @@
-import { fizzbuzzReplacement } from './fizzbuzz'
-import {ArrayHasInvalidNumbersError} from './array-has-invalid-numbers'
+import { fizzbuzzReplacement } from '../../../src/domain/utils/fizzbuzz'
+import {ArrayHasInvalidNumbersException} from '../../../src/domain/exceptions/array-has-invalid-numbers.exception'
 
 describe("fizzbuzz", () => {
     describe("given an array of numbers from 1 to 100:", () => {
@@ -32,7 +32,7 @@ describe("fizzbuzz", () => {
             it('should throw ArrayHasInvalidNumbersError', () => {
                 const numbersToBeReplaced = [1, 110, 100];
                 
-                expect(() => fizzbuzzReplacement(numbersToBeReplaced)).toThrow(ArrayHasInvalidNumbersError)
+                expect(() => fizzbuzzReplacement(numbersToBeReplaced)).toThrow(ArrayHasInvalidNumbersException)
             })
         })
     })

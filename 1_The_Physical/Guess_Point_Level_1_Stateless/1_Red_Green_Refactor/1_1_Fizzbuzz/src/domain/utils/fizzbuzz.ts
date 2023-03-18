@@ -1,4 +1,4 @@
-import { ArrayHasInvalidNumbersError } from "./array-has-invalid-numbers";
+import { ArrayHasInvalidNumbersException } from "../exceptions/array-has-invalid-numbers.exception";
 
 export function fizzbuzzReplacement (sequence: number[]): [...Array<string | number>] | undefined {
     const fizzbuzzSequence = [];
@@ -9,7 +9,7 @@ export function fizzbuzzReplacement (sequence: number[]): [...Array<string | num
         const invalidNumber = number < 1 || number > 100;
 
         if (invalidNumber) {
-            throw new ArrayHasInvalidNumbersError(`Invalid number`)
+            throw new ArrayHasInvalidNumbersException(`Invalid number`)
         }
 
         if (dividedByThree && dividedByFive) {

@@ -9,8 +9,9 @@
     "strict": true,
     "esModuleInterop": true,
     "types": ["node", "jest"],
-    "skipLibCheck": true
+    "skipLibCheck": true, 
+    "rootDirs": ["src"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "test/domain/utils/fizzbuzz.spec.ts"],
   "exclude": ["src/**/*.spec.ts"]
 }
