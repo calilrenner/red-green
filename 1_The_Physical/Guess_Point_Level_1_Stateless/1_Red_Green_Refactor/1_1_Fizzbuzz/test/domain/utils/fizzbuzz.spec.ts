@@ -6,7 +6,7 @@ describe("fizzbuzz", () => {
             it(`should replace any number divisible by three with the word "fizz"`, () => {
                 const numbersToBeReplaced = [3, 9, 99];
                 const replacedNumber = fizzbuzzReplacement(numbersToBeReplaced);
-                const replacedNumbers = ['fizz', 'fizz', 'fizz']
+                const replacedNumbers = 'fizzfizzfizz'
 
                 expect(replacedNumber).toEqual(replacedNumbers);
             })
@@ -14,7 +14,7 @@ describe("fizzbuzz", () => {
             it(`should replace any number divisible by five with the word "buzz",`, () => {
                 const numbersToBeReplaced = [5, 25, 100];
                 const replacedNumber = fizzbuzzReplacement(numbersToBeReplaced);
-                const replacedNumbers = ['buzz', 'buzz', 'buzz']
+                const replacedNumbers = 'buzzbuzzbuzz'
 
                 expect(replacedNumber).toEqual(replacedNumbers);
             })
@@ -22,7 +22,7 @@ describe("fizzbuzz", () => {
             it(`should replace any number divisible by both 3 and 5 with the word "fizzbuzz"`, () => {
                 const numbersToBeReplaced = [15, 45];
                 const replacedNumber = fizzbuzzReplacement(numbersToBeReplaced);
-                const replacedNumbers = ['fizzbuzz', 'fizzbuzz']
+                const replacedNumbers = 'fizzbuzzfizzbuzz'
 
                 expect(replacedNumber).toEqual(replacedNumbers);
             })
@@ -34,6 +34,8 @@ describe("fizzbuzz", () => {
                 
                 expect(() => fizzbuzzReplacement(numbersToBeReplaced)).toThrow(ArrayHasInvalidNumbersException)
             })
+
+            it.todo('should not accept numbers smaller then 1')
         })
     })
     })

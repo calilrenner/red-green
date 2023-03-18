@@ -1,11 +1,9 @@
 import { ArrayHasInvalidNumbersException } from "../exceptions/array-has-invalid-numbers.exception";
 
-export function fizzbuzzReplacement (sequence: number[]): [...Array<string | number>] | undefined {
-    const fizzbuzzSequence = [];
-    for (let number of sequence) {
+export function fizzbuzzReplacement (sequence: number[]): string {
+    return sequence.reduce<string>((result: string, number: number): string => {
         const dividedByThree = number % 3 === 0;
         const dividedByFive = number % 5 === 0;
-
         const invalidNumber = number < 1 || number > 100;
 
         if (invalidNumber) {
@@ -13,15 +11,15 @@ export function fizzbuzzReplacement (sequence: number[]): [...Array<string | num
         }
 
         if (dividedByThree && dividedByFive) {
-            fizzbuzzSequence.push('fizzbuzz');
+            result += 'fizzbuzz'
         } else if (dividedByFive) {
-            fizzbuzzSequence.push('buzz');
+            result += 'buzz'
         } else if (dividedByThree) {
-            fizzbuzzSequence.push('fizz');
+            result += 'fizz'
         } else {
-            fizzbuzzSequence.push(number)
+            result += number
         }
-    }
 
-    return fizzbuzzSequence;
+        return result;
+    }, "")
 }
