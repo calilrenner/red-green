@@ -1,6 +1,6 @@
-export class ArrayHasInvalidNumbersException extends Error {
+export class ArrayHasInvalidNumbersError extends Error {
     constructor(message: string) {
         super(message)
-        Object.setPrototypeOf(this, ArrayHasInvalidNumbersException.prototype);
+        Object.setPrototypeOf(this, ArrayHasInvalidNumbersError.prototype);
     }
 }
