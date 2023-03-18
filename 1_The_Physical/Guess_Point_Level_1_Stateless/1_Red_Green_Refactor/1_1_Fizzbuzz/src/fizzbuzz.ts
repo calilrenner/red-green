@@ -1,8 +1,16 @@
+import { ArrayHasInvalidNumbersError } from "./array-has-invalid-numbers";
+
 export function fizzbuzzReplacement (sequence: number[]): [...Array<string | number>] | undefined {
     const fizzbuzzSequence = [];
     for (let number of sequence) {
         const dividedByThree = number % 3 === 0;
         const dividedByFive = number % 5 === 0;
+
+        const invalidNumber = number < 1 || number > 100;
+
+        if (invalidNumber) {
+            throw new ArrayHasInvalidNumbersError(`Invalid number`)
+        }
 
         if (dividedByThree && dividedByFive) {
             fizzbuzzSequence.push('fizzbuzz');
