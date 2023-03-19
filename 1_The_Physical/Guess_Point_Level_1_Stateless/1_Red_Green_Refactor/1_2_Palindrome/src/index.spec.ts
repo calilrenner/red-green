@@ -1,13 +1,16 @@
+import { palindromeChecker } from './index'
 
 describe('palindrome checker', () => {
-    describe('if the given string is a palindrome', () => {
-        it.todo('should return true if a single word has been passed')
-        it.todo('should return true if a single word mixed with upper/lower case has been passed')
-        it.todo('should return true if a single word with extra spaces has been passed')
-        it.todo('should return true if a phrase has been passed')
-    })
+    const cases = [
+        ['mom', true],
+        [' mom', true],
+        [' MoM ', true],
+        ['Was It A Rat I Saw ', true],
+        [' this is not a palindrome', false],
+        ['palindrome', false]
+    ]
 
-    describe('otherwise', () => {
-        it.todo('should throw NotAPalindromeException')
+    describe('if the given string is a palindrome', () => {
+        it.each(cases)('Given the string %s, it should return %s', (string, expected) => expect(palindromeChecker(string as string)).toBe(expected))
     })
 })
