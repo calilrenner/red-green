@@ -1,6 +1,7 @@
+import { palindromeChecker } from './index';
 
 describe('palindrome checker', () => {
-    const cases = [
+    const cases: Array<[string, boolean]> = [
         ['mom', true],
         [' mom', true],
         [' MoM ', true],
@@ -8,12 +9,8 @@ describe('palindrome checker', () => {
         [' this is not a palindrome', false],
         ['palindrome', false]
     ]
-
-    describe('if the given string is a palindrome', () => {
-        it.todo('should return true')
-    })
-
-    describe('otherwise', () => {
-        it.todo('should return false')
-    })
+    
+     describe('if the given string is a palindrome', () => {
+         it.each(cases)('given the case %s, it should return %s', (string, expected) => expect(palindromeChecker(string)).toBe(expected))
+     })
 })
