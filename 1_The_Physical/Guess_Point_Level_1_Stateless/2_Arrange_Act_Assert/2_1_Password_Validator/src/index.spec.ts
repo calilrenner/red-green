@@ -12,7 +12,6 @@ describe('password validator', () => {
 
     describe('otherwise', () => {
         describe('invalid password', () => {
-            const password = '1234';
             describe('password has up to 4 characters long', () => {
                 it(`should return:
                 - result: false,
@@ -23,7 +22,20 @@ describe('password validator', () => {
                         errors: ['passwordInvalidLength']
                     }
 
-                    expect(passwordValidator(password)).toStrictEqual(expected)
+                    expect(passwordValidator('1234')).toStrictEqual(expected)
+                })
+            })
+            describe('password has more then 15 characters long', () => {
+                it(`should return:
+                - result: false,
+                - errors: [passwordInvalidLength]
+                `, () => {
+                    const expected = {
+                        result: false,
+                        errors: ['passwordInvalidLength']
+                    }
+
+                    expect(passwordValidator('123456789abcdefg')).toStrictEqual(expected)
                 })
             })
         })
