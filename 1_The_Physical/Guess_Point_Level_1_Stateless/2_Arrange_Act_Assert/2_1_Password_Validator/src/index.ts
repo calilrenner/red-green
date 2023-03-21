@@ -3,5 +3,9 @@ export function passwordValidator(password: string) {
         return {result: false, errors: ['passwordInvalidLength']}        
     }
 
+    if (!/\d/.test(password)) {
+        return {result: false, errors: ['passwordMustHaveAtLeastOneDigit']}        
+    }
+
     return {result: true, errors: []}
 } 

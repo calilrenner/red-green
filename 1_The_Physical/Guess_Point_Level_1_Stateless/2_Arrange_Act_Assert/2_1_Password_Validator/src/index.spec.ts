@@ -38,6 +38,19 @@ describe('password validator', () => {
                     expect(passwordValidator('123456789abcdefg')).toStrictEqual(expected)
                 })
             })
+            describe('password do not have at least one digit', () => {
+                it(`should return:
+                - result: false,
+                - errors: [passwordMustHaveAtLeastOneDigit]
+                `, () => {
+                    const expected = {
+                        result: false,
+                        errors: ['passwordMustHaveAtLeastOneDigit']
+                    }
+
+                    expect(passwordValidator('abcdefgh')).toStrictEqual(expected)
+                })
+            })
         })
     })
 })
