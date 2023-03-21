@@ -6,7 +6,7 @@ describe('password validator', () => {
         - result: boolean;
         - errors: []
         `, () => {
-            expect(passwordValidator('12345')).toStrictEqual({result: true, errors: []})
+            expect(passwordValidator('12345A')).toStrictEqual({result: true, errors: []})
         })
     })
 
@@ -49,6 +49,19 @@ describe('password validator', () => {
                     }
 
                     expect(passwordValidator('abcdefgh')).toStrictEqual(expected)
+                })
+            })
+            describe('password do not have at least one upper case letter', () => {
+                it(`should return:
+                - result: false,
+                - errors: [passwordMustHaveAtLeastOneUpperCaseLetter]
+                `, () => {
+                    const expected = {
+                        result: false,
+                        errors: ['passwordMustHaveAtLeastOneUpperCaseLetter']
+                    }
+
+                    expect(passwordValidator('abcdefgh12')).toStrictEqual(expected)
                 })
             })
         })

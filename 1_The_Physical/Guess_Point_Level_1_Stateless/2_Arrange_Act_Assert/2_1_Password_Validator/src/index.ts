@@ -7,5 +7,9 @@ export function passwordValidator(password: string) {
         return {result: false, errors: ['passwordMustHaveAtLeastOneDigit']}        
     }
 
+    if (!/[A-Z]/.test(password)) {
+        return {result: false, errors: ['passwordMustHaveAtLeastOneUpperCaseLetter']}        
+    }
+
     return {result: true, errors: []}
 } 
