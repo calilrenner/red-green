@@ -22,7 +22,7 @@ describe('password validator', () => {
                         errors: ['passwordInvalidLength']
                     }
 
-                    expect(passwordValidator('1234')).toStrictEqual(expected)
+                    expect(passwordValidator('123A')).toStrictEqual(expected)
                 })
             })
             describe('password has more then 15 characters long', () => {
@@ -35,7 +35,7 @@ describe('password validator', () => {
                         errors: ['passwordInvalidLength']
                     }
 
-                    expect(passwordValidator('123456789abcdefg')).toStrictEqual(expected)
+                    expect(passwordValidator('123456789abcdefG')).toStrictEqual(expected)
                 })
             })
             describe('password do not have at least one digit', () => {
@@ -62,6 +62,19 @@ describe('password validator', () => {
                     }
 
                     expect(passwordValidator('abcdefgh12')).toStrictEqual(expected)
+                })
+            })
+            describe('password does not meet one or more requirement', () => {
+                it(`should return:
+                - result: false,
+                - errors: [...unfulfilledRequirements]
+                `, () => {
+                    const expected = {
+                        result: false,
+                        errors: ['passwordInvalidLength', 'passwordMustHaveAtLeastOneUpperCaseLetter']
+                    }
+
+                    expect(passwordValidator('a1b2')).toStrictEqual(expected)
                 })
             })
         })
