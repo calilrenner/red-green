@@ -1,19 +1,22 @@
-export function passwordValidator(password: string) {
-    if ((password.length < 5 || password.length > 15) && !/[A-Z]/.test(password)) {
-        return {result: false, errors: ['passwordInvalidLength', 'passwordMustHaveAtLeastOneUpperCaseLetter']}
-    }
+export type PasswordValidatorReturn = {
+    result: boolean;
+    errors: string[]
+}
+
+export function passwordValidator(password: string): PasswordValidatorReturn {
+    const errorsArray = [];
 
     if (password.length < 5 || password.length > 15) {
-        return {result: false, errors: ['passwordInvalidLength']}        
+        errorsArray.push('passwordInvalidLength')        
     }
 
     if (!/\d/.test(password)) {
-        return {result: false, errors: ['passwordMustHaveAtLeastOneDigit']}        
+        errorsArray.push('passwordMustHaveAtLeastOneDigit')        
     }
 
     if (!/[A-Z]/.test(password)) {
-        return {result: false, errors: ['passwordMustHaveAtLeastOneUpperCaseLetter']}        
+        errorsArray.push('passwordMustHaveAtLeastOneUpperCaseLetter')      
     }
 
-    return {result: true, errors: []}
+    return {result: errorsArray.length === 0, errors: errorsArray}
 } 

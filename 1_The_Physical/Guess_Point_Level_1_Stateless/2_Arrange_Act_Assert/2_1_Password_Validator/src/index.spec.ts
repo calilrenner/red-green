@@ -1,4 +1,4 @@
-import { passwordValidator } from './index'
+import { passwordValidator, PasswordValidatorReturn } from './index'
 
 describe('password validator', () => {
     describe('valid password', () => {
@@ -17,7 +17,7 @@ describe('password validator', () => {
                 - result: false,
                 - errors: [passwordInvalidLength]
                 `, () => {
-                    const expected = {
+                    const expected: PasswordValidatorReturn = {
                         result: false,
                         errors: ['passwordInvalidLength']
                     }
@@ -30,7 +30,7 @@ describe('password validator', () => {
                 - result: false,
                 - errors: [passwordInvalidLength]
                 `, () => {
-                    const expected = {
+                    const expected: PasswordValidatorReturn = {
                         result: false,
                         errors: ['passwordInvalidLength']
                     }
@@ -43,12 +43,12 @@ describe('password validator', () => {
                 - result: false,
                 - errors: [passwordMustHaveAtLeastOneDigit]
                 `, () => {
-                    const expected = {
+                    const expected: PasswordValidatorReturn = {
                         result: false,
                         errors: ['passwordMustHaveAtLeastOneDigit']
                     }
 
-                    expect(passwordValidator('abcdefgh')).toStrictEqual(expected)
+                    expect(passwordValidator('abcdefgH')).toStrictEqual(expected)
                 })
             })
             describe('password do not have at least one upper case letter', () => {
@@ -56,7 +56,7 @@ describe('password validator', () => {
                 - result: false,
                 - errors: [passwordMustHaveAtLeastOneUpperCaseLetter]
                 `, () => {
-                    const expected = {
+                    const expected: PasswordValidatorReturn = {
                         result: false,
                         errors: ['passwordMustHaveAtLeastOneUpperCaseLetter']
                     }
@@ -69,7 +69,7 @@ describe('password validator', () => {
                 - result: false,
                 - errors: [...unfulfilledRequirements]
                 `, () => {
-                    const expected = {
+                    const expected: PasswordValidatorReturn = {
                         result: false,
                         errors: ['passwordInvalidLength', 'passwordMustHaveAtLeastOneUpperCaseLetter']
                     }
