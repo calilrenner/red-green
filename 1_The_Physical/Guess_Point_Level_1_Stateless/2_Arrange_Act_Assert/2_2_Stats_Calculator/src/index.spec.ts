@@ -7,5 +7,9 @@ describe('stats calculator', () => {
         it('should return the minimum value', () => {
             expect(calculator.minimumValue).toBe(1)
         })
+
+        it('should return the maximum value', () => {
+            expect(calculator.maximumValue).toBe(3);
+        })
     })
 })
