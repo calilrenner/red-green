@@ -16,4 +16,8 @@ export class StatusCalculator {
     get maximumValue() {
         return this.props[2]
     }
+
+    get numberOfElements() {
+        return this.props.length;
+    }
 }
