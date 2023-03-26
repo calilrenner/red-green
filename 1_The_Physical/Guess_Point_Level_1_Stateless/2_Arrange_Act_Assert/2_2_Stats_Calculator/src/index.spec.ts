@@ -15,5 +15,9 @@ describe('stats calculator', () => {
         it('should return the number of elements in the sequence', () => {
             expect(calculator.numberOfElements).toBe(3);
         })
+
+        it('should return the number average value', () => {
+            expect(calculator.averageValue).toBe(2);
+        })
     })
 })
