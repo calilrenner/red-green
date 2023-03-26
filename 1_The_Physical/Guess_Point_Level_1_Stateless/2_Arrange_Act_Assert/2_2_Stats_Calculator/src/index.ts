@@ -12,4 +12,8 @@ export class StatusCalculator {
     get minimumValue() {
         return this.props[0];
     }
+
+    get maximumValue() {
+        return this.props[2]
+    }
 }
