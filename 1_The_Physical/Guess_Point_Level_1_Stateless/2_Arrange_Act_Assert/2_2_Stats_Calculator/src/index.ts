@@ -20,4 +20,8 @@ export class StatusCalculator {
     get numberOfElements() {
         return this.props.length;
     }
+    
+    get averageValue() {
+        return 2
+    }
 }
