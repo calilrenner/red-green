@@ -20,4 +20,11 @@ describe('stats calculator', () => {
             expect(calculator.averageValue).toBe(2);
         })
     })
+
+    describe('given an array containing non integers', () => { 
+        const integers = [1, 2.2, 3]
+        it('should throw Not a valid number', () => {
+            expect(() => StatusCalculator.new(integers)).toThrowError('Not a valid number')
+        })
+     })
 })
