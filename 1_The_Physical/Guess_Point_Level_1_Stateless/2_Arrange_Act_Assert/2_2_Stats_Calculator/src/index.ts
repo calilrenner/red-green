@@ -12,23 +12,23 @@ export class StatusCalculator {
         return new StatusCalculator(props)
     }
 
-    get minimumValue() {
+    get minimumValue(): number {
         return this.props.reduce((accumulated, nextNumber) => accumulated < nextNumber ? accumulated : nextNumber)
     }
 
-    get maximumValue() {
+    get maximumValue(): number {
         return this.props.reduce((accumulated, nextNumber) => accumulated > nextNumber ? accumulated : nextNumber)
     }
 
-    get numberOfElements() {
+    get numberOfElements(): number {
         return this.props.length;
     }
     
-    get averageValue() {
+    get averageValue(): number {
         return this.props.reduce((accumulated, nextNumber) => accumulated + nextNumber) / this.numberOfElements;
     }
 
-    private validArray() {
+    private validArray(): boolean {
         for (const number of this.props) {
             if (!Number.isInteger(number)) return false;
         }
