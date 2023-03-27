@@ -17,7 +17,7 @@ export class StatusCalculator {
     }
 
     get maximumValue() {
-        return this.props[2]
+        return this.props.reduce((accumulated, nextNumber) => accumulated > nextNumber ? accumulated : nextNumber)
     }
 
     get numberOfElements() {
