@@ -25,7 +25,7 @@ export class StatusCalculator {
     }
     
     get averageValue() {
-        return 2
+        return this.props.reduce((accumulated, nextNumber) => accumulated + nextNumber) / this.numberOfElements;
     }
 
     private validArray() {
