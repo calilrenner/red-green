@@ -2,10 +2,7 @@ export class StatusCalculator {
     private props: number[];
 
     private constructor(props: number[]) {
-        this.props = props
-        if (!this.validArray()) {
-            throw new Error('Not a valid number')
-        }
+        this.props = props;
     }
 
     static new(props: number[]) {
@@ -26,13 +23,5 @@ export class StatusCalculator {
     
     get averageValue() {
         return 2
-    }
-
-    private validArray() {
-        for (const number of this.props) {
-            if (!Number.isInteger(number)) return false;
-        }
-
-        return true;
     }
 }
