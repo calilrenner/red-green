@@ -1,4 +1,4 @@
-import { StatusCalculator } from './index'
+import {StatusCalculator} from './index'
 
 describe('stats calculator', () => {
     describe('given an array of integer', () => {
