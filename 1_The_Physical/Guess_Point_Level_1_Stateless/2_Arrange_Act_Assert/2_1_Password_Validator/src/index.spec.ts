@@ -1,17 +1,21 @@
+import { PasswordValidator } from './index';
 
 describe('password validator', () => {
-    let returnObject = {
-        result: false,
-        errors: [
-            { type: 'Invalid length', message: 'Password must be within 5 to 15 characters long' },
-        ]
-    }
+    describe('Should validate password length', () => {        
+        it('should return an object containing result:false and an array specifying the invalid length error', () => {
+                //arrange
+                const password = '1234';
 
-    it('should return an object containing result:false and an array specifying the invalid length error', () => {
-    //assert
-    expect(returnObject.result).toBe(false);
-    expect(returnObject.errors.length).toBe(1)
-    expect(returnObject.errors[0].message).toBe('Password must be within 5 to 15 characters long')
+                //act
+                const returnObject = PasswordValidator.validate(password);
+
+                //assert
+                expect(1).toBe(1)
+                expect(returnObject.result).toBe(false);
+                expect(returnObject.errors.length).toBe(1)
+                expect(returnObject.errors[0].message).toBe('Password must be within 5 to 15 characters long')
+                expect(returnObject.errors[0].type).toBe('Invalid length')
+            })
     })
 })
 
