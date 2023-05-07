@@ -1,5 +1,3 @@
-import { error } from "console";
-
 export type PasswordValidationErrors = {
     type: string;
     message: string;
@@ -13,7 +11,7 @@ export class PasswordValidator {
 
     static validate(password: string): PasswordValidationReturn {
         const errors: PasswordValidationErrors[] = []
-        if (password.length < 5) {
+        if (password.length < 5 || password.length > 15) {
             errors.push({ type: 'Invalid length', message: 'Password must be within 5 to 15 characters long' })
         }
         if (!/\d/.test(password)) {
