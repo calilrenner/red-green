@@ -14,6 +14,13 @@ export class PasswordValidator {
                     { type: 'Digit missing', message: 'Password must have at least 1 digit' },
                 ]
             }
+        } else if (!/[A-Z]/.test(password)) {
+            return {
+                result: false,
+                errors: [
+                    { type: 'Uppercase letter missing', message: 'Password must have at least 1 uppercase letter' },
+                ]
+            }
         }
         
         else {
