@@ -7,7 +7,16 @@ export class PasswordValidator {
                     { type: 'Invalid length', message: 'Password must be within 5 to 15 characters long' },
                 ]
             }
-        } else {
+        } else if (!/\d/.test(password)) {
+            return {
+                result: false,
+                errors: [
+                    { type: 'Digit missing', message: 'Password must have at least 1 digit' },
+                ]
+            }
+        }
+        
+        else {
             return {
                 result: true,
                 errors: []
