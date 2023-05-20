@@ -16,7 +16,7 @@ export class StatsCalculator {
             average: this.calculateAverage(props.list),
             maximum: this.calculateMaximum(props.list),
             minimum: this.calculateMinimum(props.list),
-            length: 6
+            length: props.list.length
         };
     }
 
