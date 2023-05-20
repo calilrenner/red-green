@@ -6,14 +6,14 @@ export interface StatsCalculatorReturn {
 }
 
 export interface StatsCalculatorProps {
-    list: number[]
+    list: number[];
 }
 
 export class StatsCalculator {
     private props: StatsCalculatorReturn;
     private constructor(props: StatsCalculatorProps) {
         this.props = {
-            average: 18.666666666667,
+            average: this.calculateAverage(props.list),
             maximum: 53,
             minimum: -8,
             length: 6
@@ -38,5 +38,9 @@ export class StatsCalculator {
 
     get length() {
         return this.props.length;
+    }
+
+    private calculateAverage(list: number[]) {
+        return +(list.reduce((prevNumber, currNumber) => (prevNumber + currNumber)) / list.length).toFixed(12)
     }
 }
