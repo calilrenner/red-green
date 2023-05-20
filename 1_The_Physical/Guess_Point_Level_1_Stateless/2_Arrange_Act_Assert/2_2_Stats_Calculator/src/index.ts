@@ -14,7 +14,7 @@ export class StatsCalculator {
     private constructor(props: StatsCalculatorProps) {
         this.props = {
             average: this.calculateAverage(props.list),
-            maximum: 53,
+            maximum: this.calculateMaximum(props.list),
             minimum: -8,
             length: 6
         };
@@ -42,5 +42,11 @@ export class StatsCalculator {
 
     private calculateAverage(list: number[]) {
         return +(list.reduce((prevNumber, currNumber) => (prevNumber + currNumber)) / list.length).toFixed(12)
+    }
+
+    private calculateMaximum(list: number[]) {
+        return list.reduce((prevNumber, currNumber) => {
+            return prevNumber > currNumber ? prevNumber : currNumber;
+        }, -Infinity)
     }
 }
